@@ -45,6 +45,11 @@ width: 100%; /* Stretches the navigation bar across the screen */
 z-index: 1000; /* Keeps it above other content */
 background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for separation */
+transition: transform 0.3s ease; /* Smooth animation for hiding/showing */
+}
+
+nav.hidden-1 {
+  transform: translateY(-100%); /* Move nav off-screen */
 }
 
 
@@ -229,13 +234,47 @@ border: none;
   color: #f39c12; /* Change hover color */
   }
   
-  /* Responsive Adjustment */
+/* Responsive Design for Small Screens */
 @media screen and (max-width: 768px) {
-.sign-up-icon {
-padding: 6px 12px; /* Smaller padding for smaller screens */
-font-size: 12px;
-}
+  /* Reduce font sizes for better readability */
+  h2 {
+    font-size: 30px;
   }
+
+  .container, main {
+    max-width: 100%; /* Ensure full-width on small screens */
+    padding: 10px; /* Reduce padding */
+  }
+
+  /* Navigation Bar */
+  nav ul {
+    flex-direction: column; /* Stack navigation links vertically */
+    gap: 10px; /* Add spacing between links */
+  }
+
+  nav ul li {
+    margin: 5px 0; /* Reduce margins */
+  }
+
+  nav ul li a {
+    font-size: 1rem; /* Reduce font size */
+  }
+
+  /* Search Bar */
+  .search-bar-container {
+    max-width: 300px; /* Reduce search bar width */
+  }
+
+  .search-bar-container input {
+    font-size: 0.8rem; /* Reduce input font size */
+    padding: 0.5rem; /* Reduce padding */
+  }
+
+  .search-bar-container button {
+    font-size: 0.7rem; /* Reduce button font size */
+    padding: 0.4rem 0.8rem; /* Reduce padding */
+  }
+}
 
 /* Left Menu Container */
 .left-menu {
@@ -258,6 +297,22 @@ font-size: 12px;
 .left-menu.expanded {
   width: 100px; /* Expanded Width */
   background-color: rgba(0, 0, 0, 0.8); /* Slightly less transparent when expanded */
+}
+
+/* Left Menu Responsiveness */
+@media screen and (max-width: 768px) {
+  .left-menu {
+    width: 50px; /* Reduce collapsed width */
+  }
+
+  .left-menu.expanded {
+    width: 150px; /* Reduce expanded width */
+  }
+
+  .menu-content a {
+    font-size: 0.9rem; /* Reduce link font size */
+    padding: 8px 15px; /* Reduce padding */
+  }
 }
 
 /* Menu Toggle Button */
@@ -411,6 +466,30 @@ transform: translateY(0);
     opacity: 1; /* Fully visible */
 }
 
+/* Billboard Video Responsiveness */
+@media screen and (max-width: 768px) {
+  .billboard-video {
+    height: auto; /* Allow height to adjust dynamically */
+  }
+
+  .billboard-overlay {
+    height: 100%; /* Full height overlay */
+    padding-left: 10px; /* Reduce padding */
+  }
+
+  .billboard-content {
+    width: 100%; /* Full width content */
+    margin-top: 50px; /* Reduce margin */
+  }
+
+  .billboard-content h1 {
+    font-size: 2rem; /* Reduce heading size */
+  }
+
+  .billboard-content p {
+    font-size: 1rem; /* Reduce paragraph size */
+  }
+}
 
 .heading h1 {
 text-align: center;
@@ -433,6 +512,54 @@ transition: transform 0.3s ease;
 
 .best-selling img:hover {
 transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .best-selling div {
+    flex: 0 0 calc(28% - 20px); /* Three images per row */
+  }
+}
+
+@media (max-width: 992px) {
+  .best-selling div {
+    flex: 0 0 calc(45% - 20px); /* Two images per row */
+  }
+
+  .heading h1 {
+    font-size: 2rem; /* Reduce font size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .best-selling {
+    flex-direction: column; /* Stack images vertically */
+    align-items: center; /* Center images */
+  }
+
+  .best-selling {
+    max-width: 100%; /* Full width for smaller screens */
+    margin-bottom: 20px; /* Add spacing between images */
+  }
+
+  .best-selling img {
+    height: 200px; /* Fixed height for consistency */
+    width: auto; /* Maintain aspect ratio */
+  }
+
+  .heading h1 {
+    font-size: 1.8rem; /* Further reduce font size for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .best-selling img {
+    height: 150px; /* Reduce image height for very small screens */
+  }
+
+  .heading h1 {
+    font-size: 1.5rem; /* Smallest font size for mobile devices */
+  }
 }
 
 /* Center-align the contents of each section */
@@ -561,6 +688,50 @@ transition: opacity 0.3s ease;
 width: 100%;
 height: 100%;
 opacity: 0;    
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .card-one, .card-two, .card-three, .card-four {
+    flex: 0 1 calc(30% - 20px); /* Three cards per row */
+  }
+}
+
+@media (max-width: 992px) {
+  .card-one, .card-two, .card-three, .card-four {
+    flex: 0 1 calc(45% - 20px); /* Two cards per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-one, .card-two, .card-three, .card-four {
+    flex: 0 1 100%; /* One card per row */
+    max-width: 100%; /* Full width */
+    margin-bottom: 20px; /* Add spacing between cards */
+  }
+
+  .Main-card h2 {
+    font-size: 28px; /* Reduce font size for smaller screens */
+  }
+
+  .category-name {
+    font-size: 0.9rem; /* Reduce font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .Main-card h2 {
+    font-size: 24px; /* Further reduce font size for very small screens */
+  }
+
+  .card-one, .card-two, .card-three, .card-four {
+    max-width: 100%; /* Ensure full width */
+    margin-bottom: 15px; /* Reduce spacing */
+  }
+
+  .category-name {
+    font-size: 0.8rem; /* Further reduce font size */
+  }
 }
 
 /*Video gallery section*/
@@ -753,6 +924,35 @@ text-shadow: 0 0 10px #fff, 0 0 20px #17e860, 0 0 30px #0b0b0a;
     background-color: #a67c00; /* Slightly darker gold */
   }
   
+/* Gold Jewelry Section Responsiveness */
+@media screen and (max-width: 768px) {
+  .gold-jewelry-section {
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content */
+  }
+
+  .gold-jewelry-info {
+    width: 100%; /* Full width */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .gold-jewelry-info h2 {
+    font-size: 1.5rem; /* Reduce heading size */
+  }
+
+  .gold-jewelry-info p {
+    font-size: 1rem; /* Reduce paragraph size */
+  }
+
+  .gold-jewelry-carousel {
+    width: 100%; /* Full width */
+  }
+
+  .carousel-item {
+    max-height: 300px; /* Reduce carousel item height */
+  }
+}
+
 /* Gold Featured Jewelry Section */
 .featured-jewelry {
     padding: 40px 20px;
@@ -869,7 +1069,33 @@ text-shadow: 0 0 10px #fff, 0 0 20px #17e860, 0 0 30px #0b0b0a;
     font-weight: bold;
   }
   
+/* Jewelry Gallery Responsiveness */
+@media screen and (max-width: 768px) {
+  .jewelry-gallery {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+    gap: 10px; /* Reduce gap */
+  }
 
+  .jewelry-item {
+    width: 100%; /* Full width */
+  }
+
+  .image-container {
+    height: 200px; /* Reduce image container height */
+  }
+
+  .jewelry-image {
+    height: 100%; /* Maintain aspect ratio */
+  }
+
+  .jewelry-info h3 {
+    font-size: 1rem; /* Reduce heading size */
+  }
+
+  .jewelry-info .price {
+    font-size: 0.9rem; /* Reduce price font size */
+  }
+}
 
   /*Brand Carousel Section Styling */
 .brand-carousel {
@@ -922,7 +1148,20 @@ text-shadow: 0 0 10px #fff, 0 0 20px #17e860, 0 0 30px #0b0b0a;
     }
 }
 
+/* Brand Carousel Responsiveness */
+@media screen and (max-width: 768px) {
+  .carousel-container {
+    max-width: 100%; /* Full width */
+  }
 
+  .carousel-track {
+    gap: 5px; /* Reduce spacing between images */
+  }
+
+  .carousel-image {
+    width: 150px; /* Reduce image size */
+  }
+}
 
 
    /* Footer Styling */
@@ -995,14 +1234,24 @@ text-shadow: 0 0 10px #fff, 0 0 20px #17e860, 0 0 30px #0b0b0a;
     padding-top: 1rem;
 }
 
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
+/* Footer Responsiveness */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Stack footer sections vertically */
+    align-items: center; /* Center content */
+  }
 
-    .footer-section {
-        flex: 1 1 100%;
-        text-align: center;
-    }
+  .footer-section {
+    flex: 1 1 100%; /* Full width */
+    text-align: center; /* Center-align text */
+    margin-bottom: 10px; /* Add spacing between sections */
+  }
+
+  .footer-section h3 {
+    font-size: 1rem; /* Reduce heading size */
+  }
+
+  .footer-section ul li a {
+    font-size: 0.9rem; /* Reduce link size */
+  }
 }

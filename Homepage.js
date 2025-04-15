@@ -2,6 +2,35 @@ window.onload = () => {
     window.scrollTo(0, 0); // Resets scroll position to the top
 };
 
+//nav hidden
+// Function to check if the screen is small
+function isSmallScreen() {
+  return window.innerWidth <= 768; // Adjust breakpoint as needed
+}
+
+// Variables to track scroll position
+let lastScrollPosition = 0;
+
+// Add scroll event listener
+window.addEventListener('scroll', () => {
+  const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Check if the screen is small
+  if (isSmallScreen()) {
+    const nav = document.querySelector('nav');
+
+    // If scrolling down, hide the nav
+    if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 0) {
+      nav.classList.add('hidden-1');
+    } else {
+      // If scrolling up, show the nav
+      nav.classList.remove('hidden-1');
+    }
+
+    // Update the last scroll position
+    lastScrollPosition = currentScrollPosition;
+  }
+});
 
 //Billboard
 document.addEventListener("DOMContentLoaded", () => {
